@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mondial_db:
+    container_name: mondial_db
+    image: postgres
+    restart: always
+    environment:
+      #Change this password
+      POSTGRES_PASSWORD: KAKZEHZFP22L3A34
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d:ro
+  pgadmin:
+    container_name: mondial_pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      #Change this password
+      PGADMIN_DEFAULT_PASSWORD: MFSYTZVH9HPHL92A
+    ports:
+      - "5050:80"
