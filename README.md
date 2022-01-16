@@ -20,6 +20,8 @@
    3. In the `Connection` tab specify the credentials ![cerate_server](doc/3_create_server.png)
    use the password from [docker-compose file](https://github.com/ag-gipp/docker-pgadmin/blob/58f23d6fbebdf9c1f3ea3d4e9953d87c4a9c9627/docker-compose.yml#L17-L19)
 ```dockerfile
+    container_name: mondial_db
+    ...
       #Change this password
       POSTGRES_PASSWORD: KAKZEHZFP22L3A34
 ```
