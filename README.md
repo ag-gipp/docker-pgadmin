@@ -15,6 +15,15 @@
       PGADMIN_DEFAULT_PASSWORD: MFSYTZVH9HPHL92A
 ```
 8. Connect to the database
+   1. Click `Servers->Create->Server...` ![create_server](doc/1_create_server.png)
+   2. In the `General` tab specify the name ![server_name](doc/2_server_name.png) 
+   3. In the `Connection` tab specify the credentials ![cerate_server](doc/3_create_server.png)
+   use the password from [docker-compose file](https://github.com/ag-gipp/docker-pgadmin/blob/58f23d6fbebdf9c1f3ea3d4e9953d87c4a9c9627/docker-compose.yml#L17-L19)
+```dockerfile
+      #Change this password
+      POSTGRES_PASSWORD: KAKZEHZFP22L3A34
+```
+
 ## Simple SQL statements
 <details>
 <summary>Please find some sample statements below</summary>
