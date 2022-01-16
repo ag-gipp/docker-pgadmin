@@ -1,0 +1,1 @@
+copy geoname from '/docker-entrypoint-initdb.d/cities500.txt' NULL ''
