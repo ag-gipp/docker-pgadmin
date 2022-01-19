@@ -103,3 +103,39 @@ UPDATE student SET ID=2 WHERE FirstName = 'Max' and LastName='Mustermann';
 DELETE FROM student WHERE ID = 2;
 ```
 </details>
+
+## Indexes
+<details>
+<summary>Please find some sample statements below</summary>
+
+```SQL
+SELECT geonameid, asciiname, country
+FROM geoname
+WHERE name = 'Wuppertal';
+-- Cost 6644.81, Time 28.923ms
+CREATE INDEX idx_name ON geoname (name);
+-- Time 699ms, Size 5328kB
+SELECT geonameid, asciiname, country
+FROM geoname
+WHERE name = 'Wuppertal';
+-- Cost 12.45, Time 0.027ms
+
+
+SELECT geonameid, asciiname, name
+FROM geoname
+WHERE country = 'DE';
+-- Cost 7122.27, Time 54.128 ms
+CREATE INDEX idx_country ON geoname (country);
+-- Time 309ms, Size 1376 kB
+SELECT geonameid, asciiname, name
+FROM geoname
+WHERE country = 'DE';
+-- Cost 522.75, Time 11.403 ms
+CLUSTER verbose  geoname using idx_country;
+-- 4644 pages, Time 1245 ms
+SELECT geonameid, asciiname, name
+FROM geoname
+WHERE country = 'DE';
+-- Cost 522.75, Time 4.475 ms
+```
+</details>
